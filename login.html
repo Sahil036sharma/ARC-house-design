@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arc House Design | Premium Interior Solutions</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-light: #3b82f6;
+      --dark: #111827;
+      --light: #f9fafb;
+      --gray: #6b7280;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f3f4f6;
+      display: flex;
+      min-height: 100vh;
+      color: var(--dark);
+    }
+    
+    .auth-container {
+      display: flex;
+      width: 100%;
+      max-width: 1200px;
+      margin: auto;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    
+    .hero-section {
+      flex: 1;
+      background: linear-gradient(135deg, #2563eb, #1e40af);
+      color: white;
+      padding: 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 100%;
+      height: 200%;
+      background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MDAiIGhlaWdodD0iNjAwIiB2aWV3Qm94PSIwIDAgNjAwIDYwMCI+PHBhdGggZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIgZD0iTTAgMGg2MDB2NjAwSDB6Ii8+PHBhdGggZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA2KSIgZD0iTTAgMzAwaDYwMHYzMDBIMHoiLz48cGF0aCBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDYpIiBkPSJNMzAwIDBoMzAwdjYwMEgzMDB6Ii8+PC9zdmc+') center/cover;
+      opacity: 0.15;
+      transform: rotate(30deg);
+    }
+    
+    .form-section {
+      flex: 1;
+      background: white;
+      padding: 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 2rem;
+    }
+    
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--primary);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 18px;
+    }
+    
+    .logo-text {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--dark);
+    }
+    
+    .form-title {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-subtitle {
+      color: var(--gray);
+      margin-bottom: 2rem;
+    }
+    
+    .tabs {
+      display: flex;
+      border-bottom: 1px solid #e5e7eb;
+      margin-bottom: 2rem;
+    }
+    
+    .tab {
+      padding: 0.75rem 1.5rem;
+      font-weight: 500;
+      color: var(--gray);
+      cursor: pointer;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    .tab.active {
+      color: var(--primary);
+    }
+    
+    .tab.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--primary);
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--dark);
+    }
+    
+    .form-input {
+      width: 100%;
+      padding: 0.875rem 1rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      font-size: 15px;
+      transition: all 0.2s ease;
+    }
+    
+    .form-input:focus {
+      outline: none;
+      border-color: var(--primary-light);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+    }
+    
+    .form-input::placeholder {
+      color: #9ca3af;
+    }
+    
+    .input-with-icon {
+      position: relative;
+    }
+    
+    .input-icon {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #9ca3af;
+    }
+    
+    .password-toggle {
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #9ca3af;
+      cursor: pointer;
+    }
+    
+    .btn {
+      width: 100%;
+      padding: 0.875rem;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background: var(--primary-light);
+    }
+    
+    .divider {
+      display: flex;
+      align-items: center;
+      margin: 1.5rem 0;
+      color: #9ca3af;
+      font-size: 14px;
+    }
+    
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #e5e7eb;
+    }
+    
+    .divider::before {
+      margin-right: 1rem;
+    }
+    
+    .divider::after {
+      margin-left: 1rem;
+    }
+    
+    .social-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 0.75rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+    
+    .social-btn:hover {
+      background: #f9fafb;
+    }
+    
+    .form-footer {
+      margin-top: 1.5rem;
+      text-align: center;
+      font-size: 14px;
+      color: var(--gray);
+    }
+    
+    .form-footer a {
+      color: var(--primary);
+      font-weight: 500;
+    }
+    
+    .hidden {
+      display: none;
+    }
+    
+    /* Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .tab-content {
+      animation: fadeIn 0.3s ease-out;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .auth-container {
+        flex-direction: column;
+      }
+      
+      .hero-section {
+        padding: 2rem;
+        text-align: center;
+      }
+      
+      .form-section {
+        padding: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="auth-container">
+    <!-- Hero Section -->
+    <div class="hero-section">
+      <div style="position: relative; z-index: 1;">
+        <h1 style="font-size: 32px; font-weight: 700; margin-bottom: 1rem;">Transform Your Space</h1>
+        <p style="font-size: 18px; opacity: 0.9; margin-bottom: 2rem;">
+          Discover premium interior design solutions tailored to your unique style.
+        </p>
+        <div style="margin-top: 3rem;">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+            <div style="width: 48px; height: 48px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+              <i class="fas fa-palette" style="font-size: 20px;"></i>
+            </div>
+            <div>
+              <h3 style="font-weight: 600; margin-bottom: 0.25rem;">Custom Designs</h3>
+              <p style="opacity: 0.8; font-size: 14px;">Tailored to your personal taste</p>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+            <div style="width: 48px; height: 48px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+              <i class="fas fa-award" style="font-size: 20px;"></i>
+            </div>
+            <div>
+              <h3 style="font-weight: 600; margin-bottom: 0.25rem;">Premium Quality</h3>
+              <p style="opacity: 0.8; font-size: 14px;">Exceptional materials and craftsmanship</p>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div style="width: 48px; height: 48px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+              <i class="fas fa-headset" style="font-size: 20px;"></i>
+            </div>
+            <div>
+              <h3 style="font-weight: 600; margin-bottom: 0.25rem;">Dedicated Support</h3>
+              <p style="opacity: 0.8; font-size: 14px;">We're with you every step of the way</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Form Section -->
+    <div class="form-section">
+      <div class="logo">
+        <div class="logo-icon">
+          <i class="fas fa-home"></i>
+        </div>
+        <div class="logo-text">Arc House</div>
+      </div>
+      
+      <div class="tabs">
+        <div class="tab active" onclick="showTab('login')">Sign In</div>
+        <div class="tab" onclick="showTab('signup')">Create Account</div>
+      </div>
+      
+      <!-- Login Form -->
+      <div id="login" class="tab-content">
+        <h2 class="form-title">Welcome back</h2>
+        <p class="form-subtitle">Sign in to access your account and projects</p>
+        
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <div class="input-with-icon">
+            <i class="fas fa-envelope input-icon"></i>
+            <input type="email" class="form-input pl-10" placeholder="your@email.com">
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <div class="input-with-icon">
+            <i class="fas fa-lock input-icon"></i>
+            <input type="password" class="form-input pl-10 pr-10" placeholder="••••••••">
+            <i class="fas fa-eye-slash password-toggle" onclick="togglePassword(this)"></i>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-top: 0.5rem;">
+            <div>
+              <input type="checkbox" id="remember" class="mr-2">
+              <label for="remember" style="font-size: 14px; color: var(--gray);">Remember me</label>
+            </div>
+            <a href="#" style="font-size: 14px; color: var(--primary); font-weight: 500;">Forgot password?</a>
+          </div>
+        </div>
+        
+        <button class="btn btn-primary">
+          <i class="fas fa-sign-in-alt"></i> Sign In
+        </button>
+        
+        <div class="divider">or continue with</div>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <button class="social-btn">
+            <i class="fab fa-google" style="color: #DB4437;"></i> Google
+          </button>
+          <button class="social-btn">
+            <i class="fab fa-apple" style="color: #000;"></i> Apple
+          </button>
+        </div>
+        
+        <div class="form-footer">
+          Don't have an account? <a href="#" onclick="showTab('signup')">Sign up</a>
+        </div>
+      </div>
+      
+      <!-- Signup Form -->
+      <div id="signup" class="tab-content hidden">
+        <h2 class="form-title">Create your account</h2>
+        <p class="form-subtitle">Get started with your design journey</p>
+        
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <div class="input-with-icon">
+            <i class="fas fa-user input-icon"></i>
+            <input type="text" class="form-input pl-10" placeholder="John Doe">
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <div class="input-with-icon">
+            <i class="fas fa-envelope input-icon"></i>
+            <input type="email" class="form-input pl-10" placeholder="your@email.com">
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <div class="input-with-icon">
+            <i class="fas fa-lock input-icon"></i>
+            <input type="password" class="form-input pl-10 pr-10" placeholder="••••••••">
+            <i class="fas fa-eye-slash password-toggle" onclick="togglePassword(this)"></i>
+          </div>
+          <div style="font-size: 13px; color: var(--gray); margin-top: 0.5rem;">
+            Must be at least 8 characters
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">Confirm Password</label>
+          <div class="input-with-icon">
+            <i class="fas fa-lock input-icon"></i>
+            <input type="password" class="form-input pl-10 pr-10" placeholder="••••••••">
+            <i class="fas fa-eye-slash password-toggle" onclick="togglePassword(this)"></i>
+          </div>
+        </div>
+        
+        <div style="margin-bottom: 1.5rem;">
+          <input type="checkbox" id="terms" class="mr-2">
+          <label for="terms" style="font-size: 14px; color: var(--gray);">
+            I agree to the <a href="#" style="color: var(--primary);">Terms of Service</a> and <a href="#" style="color: var(--primary);">Privacy Policy</a>
+          </label>
+        </div>
+        
+        <button class="btn btn-primary">
+          <i class="fas fa-user-plus"></i> Create Account
+        </button>
+        
+        <div class="divider">or continue with</div>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <button class="social-btn">
+            <i class="fab fa-google" style="color: #DB4437;"></i> Google
+          </button>
+          <button class="social-btn">
+            <i class="fab fa-apple" style="color: #000;"></i> Apple
+          </button>
+        </div>
+        
+        <div class="form-footer">
+          Already have an account? <a href="#" onclick="showTab('login')">Sign in</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showTab(tab) {
+      document.querySelectorAll('.tab-content').forEach(content => content.classList.add('hidden'));
+      document.querySelectorAll('.tab').forEach(btn => btn.classList.remove('active'));
+      document.getElementById(tab).classList.remove('hidden');
+      document.querySelector(`.tab[onclick="showTab('${tab}')"]`).classList.add('active');
+    }
+    
+    function togglePassword(icon) {
+      const input = icon.parentElement.querySelector('input');
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.classList.remove('fa-eye-slash');
+        icon.classList.add('fa-eye');
+      } else {
+        input.type = 'password';
+        icon.classList.remove('fa-eye');
+        icon.classList.add('fa-eye-slash');
+      }
+    }
+    
+    // Form submission simulation
+    document.querySelectorAll('.btn-primary').forEach(button => {
+      button.addEventListener('click', function() {
+        const originalContent = this.innerHTML;
+        this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+        this.disabled = true;
+        
+        setTimeout(() => {
+          this.innerHTML = originalContent;
+          this.disabled = false;
+          
+          // For demo purposes
+          const formType = this.closest('.tab-content').id;
+          alert(formType === 'login' ? 'Login successful!' : 'Account created successfully!');
+        }, 1500);
+      });
+    });
+  </script>
+</body>
+</html>
